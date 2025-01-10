@@ -38,6 +38,10 @@ public class FirstClientHandler extends ChannelInboundHandlerAdapter {
         byte[] bytes = "意大利诗人莫泊桑说过，生活没有你想的那好，但也没有那么糟。".getBytes(StandardCharsets.UTF_8);
         // 3、填充数据到byteBuf
         buffer.writeBytes(bytes);
+        // ByteBuf底层占用了多少字节
+        int capacity = buffer.capacity();
+        // byteBuf底层最大能占用多少字节
+        int maxCapacity = buffer.maxCapacity();
         return buffer;
     }
 }
